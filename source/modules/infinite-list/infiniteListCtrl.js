@@ -39,6 +39,12 @@ angular.module( "InfiniteList" )
                 ctrl.currentThought = ctrl.list[ 0 ];
                 ctrl.currentThought.link = $sce.trustAsResourceUrl( ctrl.currentThought.link );
             } );
+
+            Thought.getTeams()
+            .then( function ( results )
+            {
+                console.dir( results.data );
+            } );
         };
 
         ctrl.makeCurrentThought = function ( thought )

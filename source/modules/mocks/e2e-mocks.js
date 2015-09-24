@@ -9,8 +9,10 @@ angular.module( "e2e-mocks", [ "ngMockE2E", "ngRoute" ] )
         "use strict";
 
         $httpBackend.when( "GET", APIRoot + "thoughts/" )
-
             .respond( mockData.getThoughts );
+
+        $httpBackend.when( "GET", APIRoot + "teams/" )
+            .respond( mockData.getTeams );
 
     }
 ] );

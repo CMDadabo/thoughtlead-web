@@ -23,5 +23,16 @@ angular.module( "e2e-mocks" )
             "creation_date": "2015-09-24"
         }
 
+    ],
+
+    getTeams : [
+        {
+            "id": 1,
+            "name": "developers"
+        },
+        {
+            "id": 5,
+            "name": "bizdev"
+        }
     ]
 } );
