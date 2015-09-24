@@ -34,9 +34,46 @@
 
     }
 
+    .list-container {
+        height: 100%;
+    }
+
+    #thought-list-container {
+        width: 200px;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow-y: scroll;
+    }
+
+    #thought-container {
+        position: absolute;
+        left: 200px;
+        top: 100px;
+        right: 0;
+        bottom: 200px;
+        background: pink;
+    }
+
+    #afterthought-container{
+        position: absolute;
+        left: 200px;
+        height: 200px;
+        right: 0;
+        bottom: 0;
+        background: blue;
+    }
+
     .row {
-        max-width: 1020px;
         margin: 0 auto;
+
+        &#thought-list {
+            width: 200px;
+            margin: 0;
+            min-height: 1000px;
+        }
 
         &.login {
             width: 500px;
