@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html lang="en-US" data-ng-app="App">
+
+	<head>
+
+		<meta charset="utf-8">
+		<title>Roadhouse</title>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0, width=device-width">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<link rel="stylesheet" href="/build/components.css">
+		<link rel="stylesheet" href="/build/project.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+		<base href="/">
+
+	</head>
+
+	<body class="{{controller}}">
+
+		<main data-ng-view></main>
+
+		<% if( useDist ) { %>
+		<script src="/build/dist.js" defer></script>
+		<% } else { %>
+		<script src="/build/angular.js"></script>
+		<script src="/build/components.js"></script>
+		<% if( useSource ) { %>
+		<!-- include: "type": "js", "files": "build/modules/*/*.js" -->
+		<!-- include: "type": "js", "files": "build/modules/*/*/*.js" -->
+		<% } else { %>
+		<script src="/build/project.js"></script>
+		<% } %>
+		<script src="/build/templates.js"></script>
+		<% } %>
+
+	</body>
+
+</html>
