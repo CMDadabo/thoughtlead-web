@@ -17,6 +17,8 @@ angular.module( "InfiniteList" )
 
         ctrl.list = [];
 
+        ctrl.activeItem = 1;
+
         // ctrl.getListItems = function ( reload )
         // {
         //     if( ctrl.list && reload )
