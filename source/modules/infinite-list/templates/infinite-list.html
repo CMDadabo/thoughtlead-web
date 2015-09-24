@@ -16,26 +16,34 @@
                 <input type="text" class="form-control" placeholder="Search Thoughts" data-ng-model="query">
             </div>
 
-            <table>
+            <ul>
+                <li>
+                    <ul class="thought-heading clearfix">
+                        <h2>Articles</h2>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="thought-section">
+                        <li data-ng-repeat="item in infiniteList.list | filter:query" id="{{ item.id }}">
+                            <div class="media media_push">
+                                <div class="media-img">
+                                    <img src="http://placehold.it/50x50" />
+                                </div>
+                                <div class="media-body">
+                                    <ul>
+                                        <li>{{ item.description }}</li>
+                                        <li class="thought-date">{{ item.creationDate }}</li>
+                                        <li>
+                                            <a href="{{ item.link }}" class="thought-link">{{ item.link }}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
-                <!-- <tbody infinite-scroll="infiniteList.list.getNextPage()"
-                        infinite-scroll-disabled="infiniteList.list.busy || infiniteList.list.nextPage === null"
-                        infinite-scroll-distance="0"> -->
-
-                <tbody>
-                    <tr data-ng-repeat="item in infiniteList.list | filter:query" id="{{ item.id }}" >
-                        <td>
-                            {{ item.id }}
-                        </td>
-                        <td>
-                            {{ item.name }}
-                        </td>
-                        <td>
-                            <a href="mailto:{{ item.email }}">{{ item.email }}</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
             <div data-ng-show="infiniteList.items.busy">Loading data...</div>
         </div>
     </div>
