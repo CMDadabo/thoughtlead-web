@@ -45,7 +45,7 @@ angular.module( "InfiniteList", [
             } ] };
 
         $routeProvider
-            .when( "/infinite-list", {
+            .when( "/app", {
                 templateUrl: "modules/infinite-list/templates/infinite-list.html",
                 controller: "InfiniteListCtrl",
                 controllerAs: "infiniteList",

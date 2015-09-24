@@ -8,8 +8,8 @@ angular.module( "InfiniteList" )
  *
  * @description Controller for infinite scrolling list views.
  */
-.controller( "InfiniteListCtrl", [ "infiniteScrollDecorator", "thoughtleadAPI", "APIRoot", "Thought",
-    function ( infiniteScrollDecorator, thoughtleadAPI, APIRoot, Thought )
+.controller( "InfiniteListCtrl", [ "infiniteScrollDecorator", "thoughtleadAPI", "APIRoot", "Thought", "$sce",
+    function ( infiniteScrollDecorator, thoughtleadAPI, APIRoot, Thought, $sce )
     {
         "use strict";
 
@@ -29,13 +29,22 @@ angular.module( "InfiniteList" )
         //     }
         // };
 
+        ctrl.currentThought = "";
+
         ctrl.getListItems = function ()
         {
             Thought.getAll()
             .then( function ( results ) {
                 ctrl.list = results.data;
-                console.dir( ctrl.list );
+                ctrl.currentThought = ctrl.list[ 0 ];
+                ctrl.currentThought.link = $sce.trustAsResourceUrl( ctrl.currentThought.link );
             } );
+        };
+
+        ctrl.makeCurrentThought = function ( thought )
+        {
+            ctrl.currentThought = thought;
+            ctrl.currentThought.link = $sce.trustAsResourceUrl( thought.link );
         };
 
         // Run on Load

@@ -13,18 +13,15 @@
     <div id="thought-list-container">
         <div class="row" id="thought-list">
             <div class="table-controls form-inline clearfix">
-                <input type="text" class="form-control" placeholder="Filter Users" data-ng-model="query">
+                <input type="text" class="form-control" placeholder="Search Thoughts" data-ng-model="query">
             </div>
 
             <table>
-                <thead>
-                    <th>User Id</th>
-                    <th>Full Name</th>
-                    <th>Contact Email</th>
-                </thead>
+
                 <!-- <tbody infinite-scroll="infiniteList.list.getNextPage()"
                         infinite-scroll-disabled="infiniteList.list.busy || infiniteList.list.nextPage === null"
                         infinite-scroll-distance="0"> -->
+
                 <tbody>
                     <tr data-ng-repeat="item in infiniteList.list | filter:query" id="{{ item.id }}" >
                         <td>
@@ -43,7 +40,16 @@
         </div>
     </div>
 
-    <div id="thought-container" >
+    <div id="thought-container">
+
+        <div id="thought-container-banner">
+            External Content
+        </div>
+
+        <iframe data-ng-src="{{ infiniteList.currentThought.link }}">
+             <p>Your browser does not support iframes. You are not a ThoughtLeader :(</p>
+        </iframe>
+
     </div>
 
     <div id="afterthought-container">

@@ -4,6 +4,11 @@
 @table-head-border: #333333;
 @table-row-even-background: #F1F1F1;
 
+html, body
+{
+    height: 100%;
+}
+
 .clearfix:after {
     content: " ";
     visibility: hidden;
@@ -49,12 +54,35 @@
     }
 
     #thought-container {
+
         position: absolute;
         left: 200px;
         top: 100px;
         right: 0;
         bottom: 200px;
-        background: pink;
+        z-index: 1;
+
+        iframe {
+            position: absolute;
+            border: 0;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: 2;
+            box-shadow: inset 0px 0px 30px 10px rgba(0,0,0,0.25);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+        }
     }
 
     #afterthought-container{

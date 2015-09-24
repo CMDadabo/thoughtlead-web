@@ -5,13 +5,13 @@ angular.module( "List" )
  * @name      ListCtrl
  * @requires  $filter
  * @requires  ngDialog
- * @requires  mockAPI
+ * @requires  thoughtleadAPI
  * @requires  User
  *
  * @description Controller for paginated list views.
  */
-.controller( "ListCtrl", [ "$filter", "ngDialog", "mockAPI", "User", "$scope",
-    function ( $filter, ngDialog, mockAPI, User, $scope )
+.controller( "ListCtrl", [ "$filter", "ngDialog", "thoughtleadAPI", "User", "$scope",
+    function ( $filter, ngDialog, thoughtleadAPI, User, $scope )
     {
         "use strict";
 

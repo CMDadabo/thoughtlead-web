@@ -41,7 +41,7 @@ angular.module( "App", [
 
             if( Session.get.authToken() && Session.get.user() && $location.path() === "/login" )
             {
-                $location.path( "/list" );
+                $location.path( "/app" );
             }
         } );
 
