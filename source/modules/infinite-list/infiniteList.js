@@ -10,7 +10,7 @@ angular.module( "InfiniteList", [
     "List",
     "Auth",
     "infinite-scroll",
-    "infiniteScrollDecorator",
+    "infiniteScrollDecorator"
 ] )
 
 .config( [ "$routeProvider",

@@ -4,12 +4,12 @@ angular.module( "InfiniteList" )
  * @ngdoc     function
  * @name      LoginCtrl
  * @requires  infiniteScrollDecorator
- * @requires  mockAPI
+ * @requires  thoughtleadAPI
  *
  * @description Controller for infinite scrolling list views.
  */
-.controller( "InfiniteListCtrl", [ "infiniteScrollDecorator", "mockAPI", "APIRoot",
-    function ( infiniteScrollDecorator, mockAPI, APIRoot )
+.controller( "InfiniteListCtrl", [ "infiniteScrollDecorator", "thoughtleadAPI", "APIRoot", "Thought",
+    function ( infiniteScrollDecorator, thoughtleadAPI, APIRoot, Thought )
     {
         "use strict";
 
@@ -17,16 +17,25 @@ angular.module( "InfiniteList" )
 
         ctrl.list = [];
 
-        ctrl.getListItems = function ( reload )
+        // ctrl.getListItems = function ( reload )
+        // {
+        //     if( ctrl.list && reload )
+        //     {
+        //         ctrl.list.reload();
+        //     }
+        //     else
+        //     {
+        //         ctrl.list = new infiniteScrollDecorator( APIRoot + "thoughts/", thoughtleadAPI );
+        //     }
+        // };
+
+        ctrl.getListItems = function ()
         {
-            if( ctrl.list && reload )
-            {
-                ctrl.list.reload();
-            }
-            else
-            {
-                ctrl.list = new infiniteScrollDecorator( APIRoot + "contacts/page/{page}", mockAPI );
-            }
+            Thought.getAll()
+            .then( function ( results ) {
+                ctrl.list = results.data;
+                console.dir( ctrl.list );
+            } );
         };
 
         // Run on Load

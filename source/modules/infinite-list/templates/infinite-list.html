@@ -22,10 +22,11 @@
                     <th>Full Name</th>
                     <th>Contact Email</th>
                 </thead>
-                <tbody infinite-scroll="infiniteList.list.getNextPage()"
+                <!-- <tbody infinite-scroll="infiniteList.list.getNextPage()"
                         infinite-scroll-disabled="infiniteList.list.busy || infiniteList.list.nextPage === null"
-                        infinite-scroll-distance="0">
-                    <tr data-ng-repeat="item in infiniteList.list.items | filter:query" id="{{ item.id }}" >
+                        infinite-scroll-distance="0"> -->
+                <tbody>
+                    <tr data-ng-repeat="item in infiniteList.list | filter:query" id="{{ item.id }}" >
                         <td>
                             {{ item.id }}
                         </td>
