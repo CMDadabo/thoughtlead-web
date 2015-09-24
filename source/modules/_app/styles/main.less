@@ -1,12 +1,17 @@
 @charset "utf-8";
 
-@blue: #2C3942;
-@table-head-border: #333333;
-@table-row-even-background: #F1F1F1;
+@gray: #808285;
+@black: #000000;
+@green: #12DDBB;
+@blue: #0FAED8;
 
 html, body
 {
     height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .clearfix:after {
@@ -18,7 +23,7 @@ html, body
 }
 
 .LoginCtrl {
-    background: @blue;
+    background: @black;
 }
 
 /* Application Styles */
@@ -27,12 +32,14 @@ html, body
 
     &.header {
         padding: 30px 0;
+        height: 100px;
         background: @blue;
+        overflow: hidden;
 
-        h1 {
+        img {
+            margin-left: 10px;
             float: left;
-            color: #FFFFFF;
-            margin: 0;
+            height: 60px;
         }
 
         .main-nav {
@@ -42,13 +49,14 @@ html, body
         }
 
         .nav-pills > li > a {
-            background-color: #f2f2f2;
+            background-color: @gray;
+            color: #FFF;
         }
 
         .nav-pills > .active > a,
         .nav-pills > li > a:hover {
-            background-color: #428bca;
-            color: #ffffff;
+            background-color: @green;
+            color: #FFF;
         }
 
         .nav-pills > li + li {
@@ -57,6 +65,9 @@ html, body
 
         .logout {
             float: right;
+            color: #FFF;
+            line-height: 40px;
+            margin-right: 20px;
         }
 
     }
@@ -81,7 +92,7 @@ html, body
         }
 
         .current {
-            background-color: #EEE;
+            background-color: @green;
         }
 
         .thought-heading {
@@ -91,6 +102,7 @@ html, body
 
         .thought-section > li {
             padding: 10px;
+            cursor: pointer;
         }
 
         .thought-description {
@@ -208,55 +220,16 @@ html, body
             width: 100%;
             padding: 10px;
 
+            #thought-search {
+                width: 180px;
+            }
+
             input {
                 float: left;
             }
 
             button {
                 float:right;
-            }
-        }
-
-        table {
-            width: 100%;
-
-            thead {
-                border-bottom: 1px solid @table-head-border;
-
-                tr {
-                    background: #FFFFFF;
-
-                    th {
-                        font-weight: bold;
-                        text-align: left;
-                        padding: 20px 0 20px 20px;
-                        cursor: pointer;
-                    }
-
-                    &:hover {
-                        background: #FFFFFF;
-                    }
-                }
-            }
-
-            tr {
-                border-bottom: 1px solid #333;
-
-                &:nth-child(even) {
-                    background: @table-row-even-background;
-                }
-
-                &:hover {
-                    background: #cfcfcf;
-                }
-
-                td {
-                    padding: 20px 0 20px 20px;
-                }
-
-                i {
-                    cursor: pointer;
-                }
             }
         }
 
@@ -307,7 +280,6 @@ html, body
 
         .form-controls {
             padding: 20px;
-            border-top: 1px solid @table-head-border;
 
             button {
                 float: right;
@@ -317,4 +289,9 @@ html, body
         }
     }
 
+}
+
+.btn-primary{
+    background-color: @green;
+    border: 0;
 }

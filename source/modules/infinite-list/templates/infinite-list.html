@@ -1,8 +1,7 @@
 <div class="row-container header">
     <div class="row">
         <header>
-            <h1>ThoughtLead</h1>
-
+            <img src="/build/images/thoughtlead.svg" />
             <div data-ng-include="'modules/_app/templates/main-nav.html'"></div>
         </header>
     </div>
@@ -13,7 +12,7 @@
     <div id="thought-list-container">
         <div class="row" id="thought-list">
             <div class="table-controls form-inline clearfix">
-                <input type="text" class="form-control" placeholder="Search Thoughts" data-ng-model="query">
+                <input id="thought-search" type="text" class="form-control" placeholder="Search Thoughts" data-ng-model="query">
                 <button class="btn btn-primary" data-ng-click="infiniteList.addingThought = !infiniteList.addingThought"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
             </div>
 
@@ -76,10 +75,10 @@
 
                 <label for="teams">
                     <span>Teams</span>
-                    <div data-ng-repeat="team in infiniteList.teams" >
+                    <label data-ng-repeat="team in infiniteList.teams" >
                         <input type="checkbox" data-ng-model="infiniteList.editingThought.teams[ team.id ]" >
                         <span>{{ team.name | capitalize }}</span>
-                    </div>
+                    </label>
                 </label>
 
                 <div class="form-controls clearfix">
