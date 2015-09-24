@@ -14,6 +14,7 @@
         <div class="row" id="thought-list">
             <div class="table-controls form-inline clearfix">
                 <input type="text" class="form-control" placeholder="Search Thoughts" data-ng-model="query">
+                <button class="btn btn-primary" data-ng-click="infiniteList.addingThought = !infiniteList.addingThought"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
             </div>
 
             <ul>
@@ -24,8 +25,11 @@
                 </li>
                 <li>
                     <ul class="thought-section">
-                        <li data-ng-repeat="item in infiniteList.list | filter:query" id="{{ item.id }}">
-                            <div class="media media_push">
+                        <li data-ng-repeat="item in infiniteList.list | filter:query"
+                            data-ng-click="infiniteList.makeCurrentThought( item )"
+                            data-ng-class="{ current: item.isCurrent }"
+                            id="{{ item.id }}">
+                            <div class="media">
                                 <div class="media-img">
                                     <img src="http://placehold.it/50x50" />
                                 </div>
@@ -50,13 +54,41 @@
 
     <div id="thought-container">
 
-        <div id="thought-container-banner">
-            External Content
-        </div>
-
-        <iframe data-ng-src="{{ infiniteList.currentThought.link }}">
+        <iframe sandbox="allow-scripts allow-forms allow-popups" data-ng-show="!infiniteList.addingThought" data-ng-src="{{ infiniteList.currentThought.link }}">
              <p>Your browser does not support iframes. You are not a ThoughtLeader :(</p>
         </iframe>
+
+        <div id="add-thought" data-ng-show="infiniteList.addingThought" >
+
+            <h2>Add New Thought</h2>
+
+            <form id="add-item" name="add-item" data-ng-submit="infiniteList.saveThought( infiniteList.editingThought );">
+
+                <label for="description">
+                    <span>Description</span>
+                   <input type="text" id="description" name="description" data-ng-model="infiniteList.editingThought.description" required>
+                </label>
+
+                <label for="link">
+                    <span>Link</span>
+                   <input type="text" id="link" name="link" data-ng-model="infiniteList.editingThought.link" required>
+                </label>
+
+                <label for="teams">
+                    <span>Teams</span>
+                    <div data-ng-repeat="team in infiniteList.teams" >
+                        <input type="checkbox" data-ng-model="infiniteList.editingThought.teams[ team.id ]" >
+                        <span>{{ team.name | capitalize }}</span>
+                    </div>
+                </label>
+
+                <div class="form-controls clearfix">
+                    <button type="button" class="btn btn-default" data-ng-click="infiniteList.addingThought = !infiniteList.addingThought">Cancel</button>
+                    <button id="add-item-submit" type="submit" class="btn btn-primary">Save</button>
+                </div
+            </form>
+
+        </div>
 
     </div>
 

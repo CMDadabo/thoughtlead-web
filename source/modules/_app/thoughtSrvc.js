@@ -21,12 +21,12 @@ angular.module( "App" )
 
         thought.update = function ( item )
         {
-            return thoughtleadAPI.$put( "thoughts/" + item.id, item );
+            return thoughtleadAPI.$patch( "thoughts/" + item.id, item );
         };
 
         thought.create = function ( item )
         {
-            return thoughtleadAPI.$post( "thoughts" + item.id, item );
+            return thoughtleadAPI.$post( "thoughts/", item );
         };
 
         thought.delete = function ( item )

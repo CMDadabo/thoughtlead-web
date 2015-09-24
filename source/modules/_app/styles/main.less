@@ -58,13 +58,17 @@ html, body
             list-style: none;
         }
 
+        .current {
+            background-color: #EEE;
+        }
+
         .thought-heading {
             margin-bottom: 10px;
             font-weight: bold;
         }
 
-        .thought-section > * {
-            margin-bottom: 20px;
+        .thought-section > li {
+            padding: 10px;
         }
 
         .thought-link {
@@ -111,6 +115,24 @@ html, body
             left: 0;
             pointer-events: none;
         }
+
+        #add-thought {
+
+            height: 100%;
+            overflow-y: scroll;
+            padding: 20px 40px;
+
+            label {
+
+                margin-bottom: 15px;
+                width: 100%;
+
+                input[ type = text ]{
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
     }
 
     #afterthought-container{
@@ -126,9 +148,8 @@ html, body
         margin: 0 auto;
 
         &#thought-list {
-            width: 220px; // smaller width used to account for scroll bar
+            width: 250px; // smaller width used to account for scroll bar
             margin: 0;
-            padding-left: 10px;
             min-height: 1000px;
         }
 
@@ -155,7 +176,7 @@ html, body
 
         .table-controls {
             width: 100%;
-            padding: 20px 0;
+            padding: 10px;
 
             input {
                 float: left;
@@ -226,10 +247,6 @@ html, body
         overflow: hidden;
     }
 
-}
-
-.media_push {
-    margin-bottom: 15px;
 }
 
 /* ngDialog Overrides */
