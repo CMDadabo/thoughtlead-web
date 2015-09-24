@@ -35,7 +35,29 @@ html, body
             margin: 0;
         }
 
-        nav { float: right; }
+        .main-nav {
+            margin-left: 30px;
+            float: left;
+            text-transform: uppercase;
+        }
+
+        .nav-pills > li > a {
+            background-color: #f2f2f2;
+        }
+
+        .nav-pills > .active > a,
+        .nav-pills > li > a:hover {
+            background-color: #428bca;
+            color: #ffffff;
+        }
+
+        .nav-pills > li + li {
+            margin-left: 15px;
+        }
+
+        .logout {
+            float: right;
+        }
 
     }
 
@@ -69,6 +91,14 @@ html, body
 
         .thought-section > li {
             padding: 10px;
+        }
+
+        .thought-description {
+            font-size: 16px;
+        }
+
+        .thought-section > * {
+            margin-bottom: 20px;
         }
 
         .thought-link {

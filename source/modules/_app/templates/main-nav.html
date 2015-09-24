@@ -1,10 +1,13 @@
-<nav>
+<nav class="main-nav">
     <ul class="nav nav-pills">
-        <li data-ng-class="{ 'active' : $route.current.data.active == 'infinite-list' }">
+        <li data-ng-repeat="item in infiniteList.teams" data-ng-click="infiniteList.activeItem=item.id" data-ng-class="{ 'active' : item.id == infiniteList.activeItem }">
+            <a href="#">{{ item.name }}</a>
+        </li>
+        <!-- <li data-ng-class="{ 'active' : $route.current.data.active == 'infinite-list' }">
             <a href="/infinite-list">Infinite List</a>
-        </li>
-        <li>
-            <a href="/logout">Log Out</a>
-        </li>
+        </li> -->
     </ul>
 </nav>
+
+
+<a href="/logout" class="logout">Log Out</a>
