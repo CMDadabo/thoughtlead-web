@@ -25,6 +25,30 @@ angular.module( "e2e-mocks" )
 
     ],
 
+    getAfterthoughts: [
+        {
+            "id": 1,
+            "thought": 2,
+            "thoughtleader": 78,
+            "creation_date": "2015-9-24",
+            "comment": "This was an enriching article. I feel smarter."
+        },
+        {
+            "id": 2,
+            "thought": 2,
+            "thoughtleader": 81,
+            "creation_date": "2015-9-25",
+            "comment": "I didn't actually feel that smart. Actually I felt stupider."
+        },
+        {
+            "id": 3,
+            "thought": 2,
+            "thoughtleader": 81,
+            "creation_date": "2015-9-25",
+            "comment": "LOL."
+        }
+    ],
+
     getTeams : [
         {
             "id": 1,
