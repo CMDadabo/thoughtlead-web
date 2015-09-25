@@ -34,6 +34,16 @@ angular.module( "App" )
             return thoughtleadAPI.$delete( "thoughts/" + item.id );
         };
 
+        thought.getAfterthoughts = function ( item )
+        {
+            return thoughtleadAPI.$get( "thoughts/" + item.id + "/afterthoughts/" );
+        };
+
+        thought.addAfterthought = function ( thought, afterthought )
+        {
+            return thoughtleadAPI.$post( "thoughts/" + thought.id + "/afterthoughts/", afterthought );
+        };
+
         thought.getTeams = function ()
         {
             return thoughtleadAPI.$get( "teams/" );

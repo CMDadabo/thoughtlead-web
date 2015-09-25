@@ -92,5 +92,16 @@
     </div>
 
     <div id="afterthought-container">
+        <h1>AfterThoughts</h1>
+        <div id="afterthoughts" scroll-glue>
+            <div data-ng-repeat="afterthought in infiniteList.afterthoughts">
+                <span class="thoughtleader">{{ afterthought.thoughtleader }}</span><span class="timestamp">{{ afterthought.creationDate }}</span>
+                <p>{{ afterthought.comment }}</p>
+            </div>
+        </div>
+        <div id="afterthought-entry">
+            <textarea data-ng-model="infiniteList.newAfterthought.comment" placeholder="Enter your afterthought here"></textarea>
+            <button data-ng-click="infiniteList.addAfterthought()" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+        </div>
     </div>
 </div>

@@ -4,6 +4,10 @@
 @black: #000000;
 @green: #12DDBB;
 @blue: #0FAED8;
+@gray-light: lighten( @gray, 30% );
+@gray-lighter: lighten( @gray, 40% );
+
+@sidebar-width: 270px;
 
 html, body
 {
@@ -130,10 +134,10 @@ body {
     #thought-container {
 
         position: absolute;
-        left: 250px;
+        left: @sidebar-width;
         top: 100px;
         right: 0;
-        bottom: 200px;
+        bottom: 300px;
         z-index: 1;
 
         iframe {
@@ -177,22 +181,87 @@ body {
         }
     }
 
-    #afterthought-container{
+    #afterthought-container {
+
+        border-top: 1px solid @gray-light;
         position: absolute;
-        left: 250px;
-        height: 200px;
+        left: @sidebar-width;
+        height: 300px;
+        padding: 0;
         right: 0;
         bottom: 0;
-        background: blue;
+
+        h1 {
+            padding: 20px;
+            margin: 0;
+            font-size: 16px;
+            background-color: @green;
+            color: #FFF;
+        }
+
+        #afterthoughts {
+            padding: 20px 0 5px 0;
+            height: 163px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+            & > div {
+
+                padding: 0 20px;
+
+                .thoughtleader {
+                    font-weight: bold;
+                }
+
+                .timestamp {
+                    font-size: 12px;
+                    color: @blue;
+                    margin-left: 10px;
+                }
+
+            }
+
+        }
+
+        #afterthought-entry {
+
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+
+            textarea {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 80px;
+                width: 100%;
+                padding: 10px 20px;
+                resize: none;
+                border: 0;
+                box-shadow: inset 0px 0px 10px 1px rgba( 0, 0, 0, 0.1 );
+            }
+
+            button {
+                position: absolute;
+                z-index: 999;
+                border-radius: 0;
+                right: 0;
+                height: 80px;
+            }
+
+        }
+
     }
 
     .row {
         margin: 0 auto;
 
         &#thought-list {
-            width: 250px; // smaller width used to account for scroll bar
+            width: @sidebar-width; // smaller width used to account for scroll bar
             margin: 0;
-            min-height: 1000px;
         }
 
         &.login {

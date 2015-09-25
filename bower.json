@@ -17,7 +17,8 @@
     "vokal-ng-infinite-scroll-api-decorator": "https://github.com/vokal/ng-infinite-scroll-api-decorator.git#1.x",
     "html5shiv": "3.7.2",
     "jquery-cookie": "1.4.1",
-    "css-reset": "https://github.com/vokal/css-reset.git#1.x"
+    "css-reset": "https://github.com/vokal/css-reset.git#1.x",
+    "angular-scroll-glue": "~2.0.6"
   },
   "resolutions": {
     "angular": "1.4.x"

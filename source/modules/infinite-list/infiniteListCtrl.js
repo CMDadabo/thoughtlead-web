@@ -38,6 +38,7 @@ angular.module( "InfiniteList" )
             teams: [],
             description: ""
         };
+        ctrl.newAfterthought = { comment: "" };
 
         ctrl.getListItems = function ()
         {
@@ -52,6 +53,7 @@ angular.module( "InfiniteList" )
 
                 ctrl.list[ 0 ].isCurrent = true;
                 ctrl.currentThought = ctrl.list[ 0 ];
+                ctrl.getAfterthoughts();
                 ctrl.currentThought.link = $sce.trustAsResourceUrl( ctrl.currentThought.link );
             } );
 
@@ -72,6 +74,30 @@ angular.module( "InfiniteList" )
             ctrl.currentThought = thought;
             ctrl.currentThought.link = $sce.trustAsResourceUrl( thought.link );
             ctrl.addingThought = false;
+        };
+
+        ctrl.getAfterthoughts = function ()
+        {
+            if( ctrl.currentThought )
+            {
+                Thought.getAfterthoughts( ctrl.currentThought )
+                .then( function ( response ) {
+                    ctrl.afterthoughts = response.data;
+                } );
+            }
+        };
+
+        ctrl.addAfterthought = function ()
+        {
+            if( ctrl.newAfterthought && ctrl.newAfterthought.comment.length > 0 )
+            {
+                Thought.addAfterthought( ctrl.currentThought, ctrl.newAfterthought )
+                .then( function ( response )
+                {
+                    ctrl.afterthoughts.push( response.data );
+                    ctrl.newAfterthought = { comment: "" };
+                } );
+            }
         };
 
         ctrl.saveThought = function ( thought )

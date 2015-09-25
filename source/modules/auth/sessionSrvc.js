@@ -30,7 +30,7 @@ angular.module( "Auth" )
             localStorageService.set( "user.role", user.role );
 
             // Redirect to list on session create
-            $location.path( "/list" );
+            $location.path( "/app" );
         };
 
         this.get = {

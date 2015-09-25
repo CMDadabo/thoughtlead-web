@@ -8,6 +8,18 @@ angular.module( "e2e-mocks", [ "ngMockE2E", "ngRoute" ] )
     {
         "use strict";
 
+        $httpBackend.when( "GET", APIRoot + "thoughts/:id/afterthoughts/" )
+            .respond( mockData.getAfterthoughts );
+
+        $httpBackend.when( "POST", APIRoot + "thoughts/:id/afterthoughts/" )
+            .respond( function ( method, url, data )
+            {
+                var newAfterThought = JSON.parse( data );
+                newAfterThought.creationDate = "2015-9-25";
+                newAfterThought.thoughtleader = 21;
+                return [ 200, newAfterThought ];
+            } );
+
         $httpBackend.when( "GET", APIRoot + "thoughts/" )
             .respond( mockData.getThoughts );
 

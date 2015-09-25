@@ -22,7 +22,8 @@ angular.module( "App", [
     "vokal.API",
     "Auth",
     "List",
-    "InfiniteList"
+    "InfiniteList",
+    "luegg.directives"
 ] )
 
 .run( [ "$rootScope", "$location", "Session", "$route",
