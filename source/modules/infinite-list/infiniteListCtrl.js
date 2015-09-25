@@ -17,7 +17,9 @@ angular.module( "InfiniteList" )
 
         ctrl.list = [];
 
-        ctrl.activeItem = 1;
+        ctrl.activeItem = 0; // Sets default active to first item; team with `id` of 0
+
+        ctrl.filterTeam = {};
 
         // ctrl.getListItems = function ( reload )
         // {
