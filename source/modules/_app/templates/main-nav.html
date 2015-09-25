@@ -1,11 +1,9 @@
 <nav class="main-nav">
     <ul class="nav nav-pills">
-        <li data-ng-repeat="item in infiniteList.teams" data-ng-click="infiniteList.activeItem=item.id" data-ng-class="{ 'active' : item.id == infiniteList.activeItem }">
-            <a href="#">{{ item.name }}</a>
+        <li data-ng-repeat="item in infiniteList.teams" data-ng-click="infiniteList.activeItem = item.id" data-ng-class="{ 'active' : item.id == infiniteList.activeItem }">
+            <span style="color:#ffffff;">{{ infiniteList.filterTeam.name }}</span>
+            <a href="#" data-ng-click="infiniteList.filterTeam.id = item.id">{{ item.name }}</a>
         </li>
-        <!-- <li data-ng-class="{ 'active' : $route.current.data.active == 'infinite-list' }">
-            <a href="/infinite-list">Infinite List</a>
-        </li> -->
     </ul>
 </nav>
 
