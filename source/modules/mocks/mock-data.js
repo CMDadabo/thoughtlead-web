@@ -17,7 +17,7 @@ angular.module( "e2e-mocks" )
         {
             "id": 1,
             "link": "http://techcrunch.com/2015/09/24/early-bird-tickets-to-disrupt-london-are-now-available/",
-            "teams": 1,
+            "teams": 5,
             "thoughtleader": 43,
             "description": "Disrupt London",
             "creation_date": "2013-09-24"
@@ -25,7 +25,7 @@ angular.module( "e2e-mocks" )
         {
             "id": 3,
             "link": "http://davidwalsh.name/impostor-syndrome",
-            "teams": [ 1, 2, 3, 4, 5 ],
+            "teams": [ 1, 2, 3, 4 ],
             "thoughtleader": 43,
             "description": "I'm an Impostor",
             "creation_date": "2015-05-06"
