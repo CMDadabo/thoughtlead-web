@@ -24,7 +24,7 @@
                 </li>
                 <li>
                     <ul class="thought-section">
-                        <li data-ng-repeat="item in infiniteList.list | filter:query"
+                        <li data-ng-repeat="item in infiniteList.list | filter:query | filter: { teams: infiniteList.filterTeam.id }"
                             data-ng-click="infiniteList.makeCurrentThought( item )"
                             data-ng-class="{ current: item.isCurrent }"
                             id="{{ item.id }}">
